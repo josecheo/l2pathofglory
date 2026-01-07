@@ -36,12 +36,6 @@ const Home = () => {
         <Header />
         <div className="flex-grow flex flex-col justify-center px-24 mb-24">
 
-          <p>
-            <a href="https://l2top.co/vote/server/Pathofglory" target="_blank">
-              <img src="https://l2top.co/img/banners/l2topco_mini2.png" alt="Vote for Pathofglory in L2Top.CO" />
-            </a>
-          </p>
-
           <div className="w-[600px] flex flex-col items-center text-center mb-20">
             <img src="/l2logo.png" alt="pathofglorylogo" className="h-[250px] w-auto" />
             <div className="max-w-3xl text-center mb-12">
