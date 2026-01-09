@@ -5,6 +5,7 @@ import InviteFriends from '../components/Sections/InviteFriends';
 import News from '../components/Sections/News';
 import ServerInfo from '../components/Sections/ServerInfo';
 import SocialFloating from '../components/SocialFloating';
+import VoteFloting from '../components/VoteFloting';
 
 import videoL2 from '/l2videointerlude.mp4';
 
@@ -14,6 +15,7 @@ const Home = () => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900 font-sans">
       <SocialFloating />
+      <VoteFloting />
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="relative w-full h-screen overflow-hidden">
 
@@ -37,7 +39,7 @@ const Home = () => {
         <div className="flex-grow flex flex-col justify-center px-24 mb-24">
 
           <div className="w-[600px] flex flex-col items-center text-center mb-20">
-            <img src="/l2logo.png" alt="pathofglorylogo" className="h-[250px] w-auto" />
+            <img src="/logo_pro.png" alt="pathofglorylogo" className="h-[350px] w-auto" />
             <div className="max-w-3xl text-center mb-12">
               <p className="text-xl text-gray-200 leading-relaxed">
                 Sé el primero en reclamar los secretos de la Ciudadela Abisal. <strong>¿Tienes el valor para recorrer el camino de la gloria? </strong><br />Tu historia en Aden comienza ahora.
