@@ -91,7 +91,7 @@ export default function RegisterPage() {
 
               {success && (
                 <div className="rounded-lg border border-emerald-900 bg-emerald-950/40 p-3 text-emerald-200 text-sm">
-                  Cuenta creada ✅ Ya puedes <a href="/login" className="text-emerald-200 hover:text-emerald-100">iniciar sesión</a>.
+                  Cuenta creada ✅ Ya puedes <a href="/login" className="text-emerald-200 hover:text-emerald-100 cursor-pointer">iniciar sesión</a>.
                 </div>
               )}
               <button
