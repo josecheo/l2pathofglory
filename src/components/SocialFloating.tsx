@@ -1,6 +1,6 @@
 // SocialFloating.jsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faFacebook, faInstagram, faYoutube, faTelegram } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faFacebook, faInstagram, faYoutube, faTelegram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const SocialFloating = () => {
   return (
@@ -15,6 +15,10 @@ const SocialFloating = () => {
 
       <a href="https://www.youtube.com/@l2pathofglory?si=k1DJjT7nqQ8hROHw" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 rounded-full flex items-center justify-center">
         <FontAwesomeIcon icon={faYoutube} className="text-white text-xl" />
+      </a>
+
+      <a href="https://www.tiktok.com/@l2.path.of.glory" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 rounded-full flex items-center justify-center">
+        <FontAwesomeIcon icon={faTiktok} className="text-white text-xl" />
       </a>
 
     </div>

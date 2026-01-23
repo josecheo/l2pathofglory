@@ -1,23 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-// import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import AccountPage from "./pages/AccountPage";
+
 
 
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* <Navbar /> */}
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-    
-     
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        <Route path="/account" element={<AccountPage />} />
         </Routes>
       </main>
     </div>

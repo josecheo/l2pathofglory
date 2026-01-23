@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LastUpdate from '../components/LastUpdate/LastUpdates';
@@ -10,7 +11,7 @@ import VoteFloting from '../components/VoteFloting';
 import videoL2 from '/l2videointerlude.mp4';
 
 const Home = () => {
-
+const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-gray-900 font-sans">
@@ -46,10 +47,10 @@ const Home = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-6 mb-16">
-              <button className="px-10 py-4 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-yellow-900/50 border border-amber-500">
+              <button onClick={() => navigate("/register")} className="px-10 py-4 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-yellow-900/50 border border-amber-500">
                 CREAR CUENTA
               </button>
-              <button onClick={() => window.open("https://drive.usercontent.google.com/download?id=1rmdjA0cp0HRdChp8CI3W1wYr_gvoqYCQ&export=download", "_blank")} className="px-10 py-4 bg-gradient-to-r from-gray-800/80 to-gray-900/80 hover:from-gray-700/80 hover:to-gray-800/80 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700" > DESCARGAR </button>
+              <button onClick={() => window.open("https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0", "_blank")} className="px-10 py-4 bg-gradient-to-r from-gray-800/80 to-gray-900/80 hover:from-gray-700/80 hover:to-gray-800/80 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700" > DESCARGAR </button>
             </div>
           </div>
           <LastUpdate />
