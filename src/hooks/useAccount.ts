@@ -20,7 +20,7 @@ export function useAccount() {
     setError(null);
     try {
       const me = await getMe(token);
-      setData(me);
+      setData({ ...me, characters: [...(me.characters ?? [])] });
     } catch (e: any) {
       setError(e?.message || "Error cargando cuenta");
       setData(null);

@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { tokenStorage } from "../auth/tokenStorage";
-import { useAccount } from "../hooks/useAccount";
-import { CLASS_MAP } from "../constants/classMap";
-
+import { tokenStorage } from "../../auth/tokenStorage";
+import { useAccount } from "../../hooks/useAccount";
+import { CLASS_MAP } from "../../constants/classMap";
+import { DonationCalculator } from "../../components/DonationCalculator";
+import HeaderAccount from "./HeaderAccounts";
 
 export default function AccountPage() {
   const navigate = useNavigate();
@@ -13,7 +14,6 @@ export default function AccountPage() {
     navigate("/");
   }
 
-  // Si no hay token, manda al login
   if (!token) {
     navigate("/");
     return null;
@@ -29,33 +29,7 @@ export default function AccountPage() {
 
       <div className="relative mx-auto w-full max-w-5xl px-4 py-10">
         {/* Header */}
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-4">
-            <img src="/logo_pro.png" alt="pathofglorylogo" className="h-16 w-auto" />
-            <div>
-              <h1 className="text-2xl font-semibold tracking-tight">Mi cuenta</h1>
-              <p className="text-sm text-white/60">
-                {data?.account?.login ? `Cuenta: ${data.account.login}` : "Cargando cuenta..."}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={refresh}
-              className="rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10"
-            >
-              Refresh
-            </button>
-
-            <button
-              onClick={logout}
-              className="rounded-md border border-gray-700 bg-gradient-to-r from-yellow-600 to-amber-700 px-4 py-2 text-sm font-bold text-white shadow-lg hover:from-yellow-500 hover:to-amber-600"
-            >
-              Cerrar sesión
-            </button>
-          </div>
-        </div>
+        <HeaderAccount />
 
         {/* Stats */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -69,7 +43,11 @@ export default function AccountPage() {
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Tus personajes</h2>
             <span className="text-xs text-white/50">
-              {loading ? "Actualizando..." : data?.characters?.length ? "Actualizado" : "—"}
+              {loading
+                ? "Actualizando..."
+                : data?.characters?.length
+                  ? "Actualizado"
+                  : "—"}
             </span>
           </div>
 
@@ -109,10 +87,15 @@ export default function AccountPage() {
                     .slice()
                     .sort((a, b) => b.level - a.level)
                     .map((c) => (
-                      <tr key={c.name} className="border-b border-white/5 hover:bg-white/5">
+                      <tr
+                        key={c.name}
+                        className="border-b border-white/5 hover:bg-white/5"
+                      >
                         <td className="py-3 font-semibold">{c.name}</td>
                         <td className="py-3 text-white/85">{c.level}</td>
-                        <td>{CLASS_MAP[c.classId] ?? `Unknown (${c.classId})`}</td>
+                        <td>
+                          {CLASS_MAP[c.classId] ?? `Unknown (${c.classId})`}
+                        </td>
                         <td className="py-3">
                           {c.online === 1 ? (
                             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-emerald-200">
@@ -130,14 +113,19 @@ export default function AccountPage() {
                     ))}
                 </tbody>
               </table>
-
             </div>
           )}
         </div>
 
+        {/* <DonationCalculator
+          characters={data?.characters?.map((c) => ({ name: c.name })) ?? []}
+          defaultCharacterName={data?.characters?.[0]?.name ?? ""}
+        /> */}
+
         {/* Footer */}
         <div className="mt-8 text-center text-xs text-white/35">
-          © {new Date().getFullYear()} Path of Glory — Interlude l2 private server
+          © {new Date().getFullYear()} Path of Glory — Interlude l2 private
+          server
         </div>
       </div>
     </div>
