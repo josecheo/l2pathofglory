@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 const InviteFriends = () => {
+  const navigate = useNavigate();
   return (
 <section id="community" className="scroll-mt-24 sm:py-18 ">
 
@@ -45,9 +48,6 @@ const InviteFriends = () => {
             a la batalla.
           </p>
 
-          <button className="mt-6 inline-flex items-center rounded-md border border-amber-500 bg-gradient-to-r from-yellow-600 to-amber-700 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:from-yellow-500 hover:to-amber-600 shadow-lg shadow-yellow-900/30">
-            MÁS INFORMACIÓN
-          </button>
         </div>
       </div>
     </div>

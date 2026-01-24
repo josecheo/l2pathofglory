@@ -4,6 +4,7 @@ export type WebRegisterPayload = {
   email: string;
   username: string;
   password: string;
+  ref?: string;
 };
 
 export type WebRegisterResult = { ok: true };

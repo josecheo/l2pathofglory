@@ -55,7 +55,7 @@ export default function LoginPage() {
           {/* Header / Logo */}
           <div className="flex flex-col items-center gap-4">
             <img
-              src="/logo_pro.png"
+              src="/logo_pro.webp"
               alt="pathofglorylogo"
               className="h-[180px] w-auto"
             />

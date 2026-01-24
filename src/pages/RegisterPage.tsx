@@ -1,20 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRegister } from "../hooks/useRegister";
 import FieldError from "../components/FieldError";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function RegisterPage() {
+  const [searchParams] = useSearchParams();
+  const ref = useMemo(() => searchParams.get("ref") ?? "", [searchParams]);
+
   const [form, setForm] = useState({
     email: "",
     username: "",
     password: "",
     confirmPassword: "",
   });
+
   const { submit, loading, error, fieldErrors, success } = useRegister();
   const navigate = useNavigate();
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    await submit(form);
+
+    // mandamos ref si existe
+    await submit({
+      ...form,
+      ref: ref || undefined,
+    } as any);
   }
 
   function setField<K extends keyof typeof form>(key: K, value: string) {
@@ -23,32 +33,37 @@ export default function RegisterPage() {
 
   useEffect(() => {
     if (success) {
-      setForm({
-        email: "",
-        username: "",
-        password: "",
-        confirmPassword: "",
-      });
+      setForm({ email: "", username: "", password: "", confirmPassword: "" });
     }
-  },[success])
+  }, [success]);
+
   return (
     <div className="min-h-screen bg-[#0b0f17] text-white">
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.06),transparent_55%)]" />
       </div>
+
       <div className="relative flex min-h-screen items-center justify-center px-4 py-10">
         <div className="w-full max-w-md">
           <div className="flex flex-col items-center gap-4">
-            <img
-              src="/logo_pro.png"
-              alt="pathofglorylogo"
-              className="h-[130px] w-auto"
-            />
-            <h1 className="text-3xl font-semibold tracking-tight">
-              Registrate
-            </h1>
+            <img src="/logo_pro.webp" alt="pathofglorylogo" className="h-[130px] w-auto" />
+            <h1 className="text-3xl font-semibold tracking-tight">Registrate</h1>
           </div>
+
+          {/* BANNER INVITE */}
+          {ref && (
+            <div className="mt-6 rounded-2xl border border-amber-700/60 bg-amber-900/20 p-4 text-sm text-amber-200">
+              Vienes invitado por un jugador 🎁
+              <div className="mt-2 rounded-lg border border-white/10 bg-black/20 p-2 font-mono text-xs text-white/80 break-all">
+                ref: {ref}
+              </div>
+              <p className="mt-2 text-xs text-amber-100/80">
+                Completa tu registro para activar la recompensa del reclutador.
+              </p>
+            </div>
+          )}
+
           <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.06)] backdrop-blur">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col gap-1">
@@ -59,6 +74,7 @@ export default function RegisterPage() {
                   className="w-full rounded-lg border border-white/15 bg-[#0f1623] px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/20"
                 />
                 <FieldError message={fieldErrors.email} />
+
                 <input
                   value={form.username}
                   onChange={(e) => setField("username", e.target.value)}
@@ -66,6 +82,7 @@ export default function RegisterPage() {
                   className="w-full rounded-lg border border-white/15 bg-[#0f1623] px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/20"
                 />
                 <FieldError message={fieldErrors.username} />
+
                 <input
                   type="password"
                   value={form.password}
@@ -74,6 +91,7 @@ export default function RegisterPage() {
                   className="w-full rounded-lg border border-white/15 bg-[#0f1623] px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 focus:border-sky-500/60 focus:ring-2 focus:ring-sky-500/20"
                 />
                 <FieldError message={fieldErrors.password} />
+
                 <input
                   type="password"
                   value={form.confirmPassword}
@@ -83,6 +101,7 @@ export default function RegisterPage() {
                 />
                 <FieldError message={fieldErrors.confirmPassword} />
               </div>
+
               {error && (
                 <div className="rounded-lg border border-red-900 bg-red-950/40 p-3 text-red-200 text-sm">
                   {error}
@@ -91,28 +110,33 @@ export default function RegisterPage() {
 
               {success && (
                 <div className="rounded-lg border border-emerald-900 bg-emerald-950/40 p-3 text-emerald-200 text-sm">
-                  Cuenta creada ✅ Ya puedes <a href="/login" className="text-emerald-200 hover:text-emerald-100 cursor-pointer">iniciar sesión</a>.
+                  Cuenta creada ✅ Ya puedes{" "}
+                  <a href="/login" className="text-emerald-200 hover:text-emerald-100 cursor-pointer">
+                    iniciar sesión
+                  </a>
+                  .
                 </div>
               )}
+
               <button
                 disabled={loading}
                 className="w-full px-6 py-2 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-white font-bold rounded-md transition-all duration-300 border border-gray-700 shadow-lg"
               >
                 {loading ? "Creando cuenta..." : "Continuar"}
               </button>
-                                <button
-                  onClick={() => navigate("/")}
-                  className="w-full px-6 py-2 bg-gradient-to-r from-gray-800/80 to-gray-900/80 hover:from-gray-700/80 hover:to-gray-800/80 text-white font-bold  rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700"
-                >
-                  {" "}
-                  Volver{" "}
-                </button>
+
+              <button
+                type="button"
+                onClick={() => navigate("/")}
+                className="w-full px-6 py-2 bg-gradient-to-r from-gray-800/80 to-gray-900/80 hover:from-gray-700/80 hover:to-gray-800/80 text-white font-bold  rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700"
+              >
+                Volver
+              </button>
+
               {/* Divider */}
               <div className="my-6 flex items-center gap-3">
                 <div className="h-px flex-1 bg-white/10" />
-                <span className="text-xs uppercase tracking-widest text-white/40">
-                  o
-                </span>
+                <span className="text-xs uppercase tracking-widest text-white/40">o</span>
                 <div className="h-px flex-1 bg-white/10" />
               </div>
 
@@ -129,9 +153,9 @@ export default function RegisterPage() {
               </p>
             </form>
           </div>
+
           <div className="mt-6 text-center text-xs text-white/35">
-            © {new Date().getFullYear()} Path of Glory — Interlude l2 private
-            server
+            © {new Date().getFullYear()} Path of Glory — Interlude l2 private server
           </div>
         </div>
       </div>

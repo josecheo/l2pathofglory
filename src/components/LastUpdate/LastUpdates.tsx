@@ -15,7 +15,7 @@ const LastUpdate = () => {
             </p>
           </div>
 
-          <button className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-700 bg-gradient-to-r from-blue-800/70 to-blue-900/70 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-700/70 hover:to-blue-800/70 sm:w-auto">
+          {/* <button className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-700 bg-gradient-to-r from-blue-800/70 to-blue-900/70 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-700/70 hover:to-blue-800/70 sm:w-auto">
             VER TODAS LAS NOTICIAS
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const LastUpdate = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
 
         {/* Grid */}

@@ -49,7 +49,7 @@ export function PaypalCheckout() {
   const note = (checkout.note ?? "").trim() || "Sin nota";
 
   const validatePaymentOnBackend = async (orderId: string) => {
-await fetch(`${API_URL}/paypal/confirm`, {
+  await fetch(`${API_URL}/paypal/confirm`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ orderId: orderId }),

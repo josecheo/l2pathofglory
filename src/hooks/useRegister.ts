@@ -8,6 +8,8 @@ export type RegisterForm = {
   confirmPassword: string;
 };
 
+export type RegisterSubmit = RegisterForm & { ref?: string };
+
 export type FieldErrors = Partial<Record<keyof RegisterForm, string>>;
 
 function validateClient(form: RegisterForm): FieldErrors {
@@ -39,7 +41,7 @@ export function useRegister() {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [success, setSuccess] = useState(false);
 
-  const submit = useCallback(async (form: RegisterForm) => {
+  const submit = useCallback(async (form: RegisterSubmit) => {
     setSuccess(false);
     setError(null);
 
@@ -53,6 +55,7 @@ export function useRegister() {
         email: form.email.trim().toLowerCase(),
         username: form.username.trim(),
         password: form.password,
+        ref: form.ref, // ✅ NUEVO
       });
 
       setSuccess(true);
@@ -60,7 +63,6 @@ export function useRegister() {
     } catch (e: any) {
       const apiErr = e as ApiError;
 
-      // Mapeo específico de tus errores del BFF
       if (apiErr.status === 409) {
         if (apiErr.message.includes("Email")) {
           setFieldErrors((prev) => ({ ...prev, email: "Este correo ya está registrado" }));

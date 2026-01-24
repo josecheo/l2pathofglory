@@ -80,7 +80,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* FOOTER / OTROS */}
         <BackToTop />
         <LastUpdate />
         <ServerInfo />
