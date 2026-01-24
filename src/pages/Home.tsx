@@ -1,68 +1,92 @@
-import { useNavigate } from 'react-router';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import LastUpdate from '../components/LastUpdate/LastUpdates';
-import InviteFriends from '../components/Sections/InviteFriends';
-import News from '../components/Sections/News';
-import ServerInfo from '../components/Sections/ServerInfo';
-import SocialFloating from '../components/SocialFloating';
-import VoteFloting from '../components/VoteFloting';
-
-import videoL2 from '/l2videointerlude.mp4';
+import { useNavigate } from "react-router";
+import Header from "../components/Header";
+import SocialFloating from "../components/SocialFloating";
+import VoteFloting from "../components/VoteFloting";
+import HeroSlider from "../components/HeroSlider";
+import BackToTop from "../components/BackToTop";
+import LastUpdate from "../components/LastUpdate/LastUpdates";
+import ServerInfo from "../components/Sections/ServerInfo";
+import InviteFriends from "../components/Sections/InviteFriends";
+import Footer from "../components/Footer";
 
 const Home = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gray-900 font-sans">
-      <SocialFloating />
-      <VoteFloting />
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="relative w-full h-screen overflow-hidden">
-
-          <video
-            src={videoL2}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{ width: "100%", height: "auto", objectFit: "cover", marginTop: "-60px" }}
-          />
-
-          <div className={`absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60 transition-opacity duration-1000 opacity-100`}></div>
-        </div>
-
-
+    <div className="relative min-h-screen overflow-hidden font-sans">
+      <div className="absolute inset-0 z-0 h-screen max-h-screen overflow-hidden">
+        <HeroSlider
+          slides={[
+            { src: "/NWeg5L.jpg", alt: "Background 1" },
+            { src: "/friendInvite.webp", alt: "Background 2" },
+            { src: "/new.jpg", alt: "Background 3" },
+          ]}
+        />
+        {/* opcional: overlay para legibilidad */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <main className="relative z-10 w-full  min-h-screen flex flex-col">
-        <Header />
-        <div className="flex-grow flex flex-col justify-center px-24 mb-24">
+      <SocialFloating />
+      <VoteFloting />
 
-          <div className="w-[600px] flex flex-col items-center text-center mb-20">
-            <img src="/logo_pro.png" alt="pathofglorylogo" className="h-[350px] w-auto" />
-            <div className="max-w-3xl text-center mb-12">
-              <p className="text-xl text-gray-200 leading-relaxed">
-                Sé el primero en reclamar los secretos de la Ciudadela Abisal. <strong>¿Tienes el valor para recorrer el camino de la gloria? </strong><br />Tu historia en Aden comienza ahora.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-6 mb-16">
-              <button onClick={() => navigate("/register")} className="px-10 py-4 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-yellow-900/50 border border-amber-500">
-                CREAR CUENTA
-              </button>
-              <button onClick={() => window.open("https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0", "_blank")} className="px-10 py-4 bg-gradient-to-r from-gray-800/80 to-gray-900/80 hover:from-gray-700/80 hover:to-gray-800/80 text-white font-bold text-xl rounded-lg transition-all duration-300 transform hover:scale-105 border border-gray-700" > DESCARGAR </button>
+      <main className="relative z-10 flex flex-col">
+        {/* HERO */}
+        <section className="min-h-screen flex flex-col">
+          <Header />
+
+          <div className="flex flex-1 items-center">
+            <div className="container mx-auto w-full px-4 sm:px-8 lg:px-24">
+              <div className="mx-auto flex w-full max-w-2xl flex-col items-center text-center">
+                <img
+                  src="/logo_pro.webp"
+                  alt="pathofglorylogo"
+                  className="h-auto w-[clamp(220px,55vw,520px)] drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)]"
+                />
+
+                <div className="mt-6 max-w-3xl">
+                  <p className="text-base leading-relaxed text-gray-200 sm:text-lg lg:text-xl">
+                    Sé el primero en reclamar los secretos de la Ciudadela
+                    Abisal.{" "}
+                    <strong>
+                      ¿Tienes el valor para recorrer el camino de la gloria?
+                    </strong>
+                    <br className="hidden sm:block" />
+                    Tu historia en Aden comienza ahora.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex w-full flex-col items-stretch gap-4 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
+                  <button
+                    onClick={() => navigate("/register")}
+                    className="w-full rounded-lg border border-amber-500 bg-gradient-to-r from-yellow-600 to-amber-700 px-6 py-4 text-lg font-bold text-white shadow-2xl shadow-yellow-900/50 transition-all duration-300 hover:from-yellow-500 hover:to-amber-600 sm:w-auto sm:px-10 sm:text-xl"
+                  >
+                    CREAR CUENTA
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      window.open(
+                        "https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0",
+                        "_blank",
+                      )
+                    }
+                    className="w-full rounded-lg border border-gray-700 bg-gradient-to-r from-gray-800/80 to-gray-900/80 px-6 py-4 text-lg font-bold text-white transition-all duration-300 hover:from-gray-700/80 hover:to-gray-800/80 sm:w-auto sm:px-10 sm:text-xl"
+                  >
+                    DESCARGAR
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <LastUpdate />
-        </div>
+        </section>
 
+        {/* FOOTER / OTROS */}
+        <BackToTop />
+        <LastUpdate />
         <ServerInfo />
-        <News />
         <InviteFriends />
-
         <Footer />
       </main>
-
     </div>
   );
 };

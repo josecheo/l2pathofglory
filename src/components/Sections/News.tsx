@@ -1,4 +1,4 @@
-const InviteFriends = () => {
+const News = () => {
 
 
   return (
@@ -28,4 +28,4 @@ const InviteFriends = () => {
   );
 };
 
-export default InviteFriends;
+export default News;

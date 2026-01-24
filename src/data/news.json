@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Nueva Raid: El Corazón de la Pesadilla",
+    "date": "Marzo 18, 2024",
+    "img": "/129985_t.jpg",
+    "excerpt": "Adéntrate en las profundidades del Bosque de los Susurros para enfrentarte a nuevos desafíos.",
+    "isNew": true
+  },
+  {
+    "id": 2,
+    "title": "Clase Nueva: Vigía de las Sombras",
+    "date": "Marzo 15, 2024",
+    "img": "/NWeg5L.jpg",
+    "excerpt": "Domina las artes de la sombra y la sanación con la nueva clase híbrida disponible en Midnight.",
+    "isNew": true
+  },
+  {
+    "id": 3,
+    "title": "Evento Prelanzamiento: Invasión de Xafatath",
+    "date": "Marzo 10, 2024",
+    "img": "/54611.jpg",
+    "excerpt": "Participa en el evento mundial que precede al lanzamiento de Midnight.",
+    "isNew": false
+  },
+  {
+    "id": 4,
+    "title": "Actualización de Sistemas de Combate",
+    "date": "Marzo 5, 2024",
+    "img": "/wp4118338.jpg",
+    "excerpt": "Mejoras significativas en el sistema de talentos y habilidades para todas las clases.",
+    "isNew": false
+  }
+]
