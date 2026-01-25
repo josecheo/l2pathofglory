@@ -27,7 +27,7 @@ const VoteFloting = () => {
         />
       </VoteButton>
 
-      <VoteButton href="https://l2.hopzone.net/site/vote/107131/1">
+      <VoteButton href="https://l2.hopzone.net/es/lineage2/details/107160/l2pathofglorycom?fa821dba_ipp_har=mMPdC7c2OLsr6Um79tHeTn9lxPCI4wQ%3D">
         <img src="/imagevote.png" alt="HopZone" className="w-6 h-6" />
       </VoteButton>
 
