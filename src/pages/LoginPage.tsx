@@ -9,7 +9,7 @@ export default function LoginPage() {
   const { submit, loading, error, setError } = useWebLogin();
 
   const [step, setStep] = useState<Step>("identifier");
-  const [identifier, setIdentifier] = useState(""); // email (o usuario, pero acá lo trataremos como email)
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
 
   const canContinue = useMemo(() => identifier.trim().length > 0, [identifier]);

@@ -43,12 +43,12 @@ const ServerInfo = () => {
 
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
-              { label: "EXP", value: "x10" },
-              { label: "SP", value: "x10" },
-              { label: "Drop", value: "x5" },
-              { label: "Adena", value: "x3" },
+              { label: "EXP", value: "x20" },
+              { label: "SP", value: "x20" },
+              { label: "Drop", value: "x1" },
+              { label: "Adena", value: "x1" },
               { label: "Safe Enchant", value: "+3" },
-              { label: "Max Enchant", value: "+16" },
+              { label: "Max Enchant", value: "+20" },
             ].map((it) => (
               <li
                 key={it.label}
@@ -68,14 +68,14 @@ const ServerInfo = () => {
             ))}
           </ul>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          {/* <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <button className="w-full rounded-md border border-amber-500 bg-gradient-to-r from-yellow-600 to-amber-700 px-5 py-3 text-sm font-bold text-white transition-all hover:from-yellow-500 hover:to-amber-600 sm:w-auto">
               VER DETALLES
             </button>
             <button className="w-full rounded-md border border-white/15 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-black/40 sm:w-auto">
               REGLAS DEL SERVIDOR
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
