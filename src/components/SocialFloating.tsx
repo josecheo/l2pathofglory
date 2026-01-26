@@ -28,7 +28,7 @@ const SocialFloating = () => {
         md:flex-col
       "
     >
-      <SocialButton href="https://discord.gg/nKfe5j77" icon={faDiscord} />
+      <SocialButton href="https://discord.gg/hCgHC9YbXb" icon={faDiscord} />
       <SocialButton
         href="https://www.facebook.com/share/1BUhyCGtmn/?mibextid=wwXIfr"
         icon={faFacebook}
