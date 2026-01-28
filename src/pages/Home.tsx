@@ -64,12 +64,7 @@ const Home = () => {
                   </button>
 
                   <button
-                    onClick={() =>
-                      window.open(
-                        "https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0",
-                        "_blank",
-                      )
-                    }
+                    onClick={() => navigate("/downloads")}
                     className="w-full rounded-lg border border-gray-700 bg-gradient-to-r from-gray-800/80 to-gray-900/80 px-6 py-4 text-lg font-bold text-white transition-all duration-300 hover:from-gray-700/80 hover:to-gray-800/80 sm:w-auto sm:px-10 sm:text-xl"
                   >
                     DESCARGAR

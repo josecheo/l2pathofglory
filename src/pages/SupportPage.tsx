@@ -1,13 +1,5 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import SocialFloating from "../components/SocialFloating";
-import VoteFloting from "../components/VoteFloting";
-import HeroSlider from "../components/HeroSlider";
-import BackToTop from "../components/BackToTop";
-import LastUpdate from "../components/LastUpdate/LastUpdates";
-import ServerInfo from "../components/Sections/ServerInfo";
-import InviteFriends from "../components/Sections/InviteFriends";
 import Footer from "../components/Footer";
 
 type TicketForm = {

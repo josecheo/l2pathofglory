@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage/Index";
 import { PaypalCheckout } from "./pages/AccountPage/PaypalCheckout";
 import SupportPage from "./pages/SupportPage";
+import DownloadSection from "./components/DownloadSection";
 
 
 
@@ -22,7 +23,8 @@ export default function App() {
           <Route path="/account" element={<AccountPage />} />
           <Route path="/account/donate/paypal" element={<PaypalCheckout />} />
           <Route path="/support" element={<SupportPage />} />
-          
+          <Route path="/downloads" element={<DownloadSection />} />
+            
         </Routes>
       </main>
     </div>
