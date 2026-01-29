@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function DownloadSection() {
   // 🔧 Cambia estas URLs
-  const LAUNCHER_URL = "http://38.242.136.76:8090/PathofGloryLauncher.zip";
+  const LAUNCHER_URL = "https://drive.usercontent.google.com/download?id=1XstTmRnApIiPDOvCye-DqkYIL0Ycx5ao&export=download&authuser=0";
   const CLIENT_GDRIVE_URL = "https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0";
 
   const navigate = useNavigate();
