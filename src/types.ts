@@ -9,3 +9,5 @@ export interface ServerStatus {
   online: number;
   rates: { xp: string; sp: string; adena: string };
 }
+
+export type TabKey = "overview" | "donate" | "recruit" | "rewards";

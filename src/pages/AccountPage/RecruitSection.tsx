@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { useEffect, useMemo, useState } from "react";
 import { tokenStorage } from "../../auth/tokenStorage";
 
@@ -171,7 +172,6 @@ export function RecruitSection(props: {
 
   useEffect(() => {
     loadPendingRewards();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
