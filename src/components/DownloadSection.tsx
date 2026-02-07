@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function DownloadSection() {
   // 🔧 Cambia estas URLs
-  const LAUNCHER_URL = "https://drive.usercontent.google.com/download?id=1AFTekpRSYdRfYTGfdsxGN5kjG6SSfXWc&export=download";
-  const CLIENT_GDRIVE_URL = "https://drive.usercontent.google.com/download?id=12T1AmodDmRYHR_YDjnrcKFSxzQkbVq--&export=download&authuser=0";
+  const LAUNCHER_URL = "https://drive.usercontent.google.com/download?id=1r4Mo2pK88kh9Vg5VDHUsl97TxrUKvWCa&export=download&authuser=0";
+  const CLIENT_GDRIVE_URL = "https://drive.usercontent.google.com/download?id=1OUsqFm9NIodsypk4pqLy6JXqnbbgJPXq&export=download&authuser=0";
 
   const navigate = useNavigate();
 
